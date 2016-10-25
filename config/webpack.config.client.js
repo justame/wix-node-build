@@ -75,7 +75,7 @@ const config = ({debug, hot} = {}) => {
       options = {template: options};
     }
     options = options || {};
-    const minSuffix = debug ? '': '.min';
+    const minSuffix = debug ? '' : '.min';
     return Object.keys(entries)
       .map(entryName => {
         const substitute = tpl => tpl && tpl.replace(/\[name]/g, entryName);
