@@ -34,7 +34,7 @@ describe('Loaders', () => {
             }
           }`
         }, [hooks.installDependencies])
-        .execute('build')
+        .execute('build');
 
       expect(test.content('dist/statics/app.bundle.js')).to.contain('var aServerFunction = 1;');
     });

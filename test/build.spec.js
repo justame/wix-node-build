@@ -209,12 +209,12 @@ describe('Aggregator: Build', () => {
 
     it('should create source maps and definition files side by side', () => {
       test.setup({
-          'app/a.ts': 'const b = 2;',
-          'tsconfig.json': fx.tsconfig(),
-          'package.json': fx.packageJson(),
-          'pom.xml': fx.pom()
-        })
-        .execute(buildConst);
+        'app/a.ts': 'const b = 2;',
+        'tsconfig.json': fx.tsconfig(),
+        'package.json': fx.packageJson(),
+        'pom.xml': fx.pom()
+      })
+      .execute(buildConst);
 
       expect(test.content('dist/app/a.js')).to.contain('//# sourceMappingURL=a.js.map');
       expect(test.list('dist/app')).to.include('a.js.map', 'a.d.ts');
@@ -240,7 +240,8 @@ describe('Aggregator: Build', () => {
             Object.assign(result, {[`${dir}/a.ts`]: 'function(){}'})
           , {});
 
-      test.setup(Object.assign({
+      test
+        .setup(Object.assign({
           'tsconfig.json': fx.tsconfig(),
           'package.json': fx.packageJson(),
           'pom.xml': fx.pom()
